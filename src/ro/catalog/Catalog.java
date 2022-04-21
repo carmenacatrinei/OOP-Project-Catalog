@@ -16,30 +16,12 @@ public class Catalog {
         this.grupa = grupa;
     }
 
-    public void adaugareMaterie(Materie materie){
-        materii.add(materie);
+    public List<Materie> getMaterii() {
+        return materii;
     }
 
-    public void adaugareStudent(Student student){
-        if(student.getGrupa() == grupa) {
-            studenti.add(student);
-        }
-    }
-
-    public int getMateriiSize(){
-        return materii.size();
-    }
-
-    public int getStudentiSize(){
-
-        return studenti.size();
-    }
-
-    /*    public int getStudentIndex(Student student){
-            return studenti.indexOf(student);
-        }*/
-    public Student getStudentFromIndex(int index){
-        return studenti.get(index);
+    public int getGrupa() {
+        return grupa;
     }
 
     public List<Student> getStudenti(){ return studenti; }
@@ -70,16 +52,6 @@ public class Catalog {
                 buffer.append(nota).append(" ");
             }
             buffer.append("\n");
-        }
-        return buffer.toString();
-    }
-
-    public String afisareNoteStudent(Student student){
-        StringBuilder buffer = new StringBuilder();
-        List<Integer> noteStudent = note.get(studenti.indexOf(student));
-        buffer.append(student.getNume()).append(" ").append(student.getPrenume()).append("\n");
-        for (int i = 0; i < getMateriiSize(); i++) {
-            buffer.append(materii.get(i).getDenumire()).append(": ").append(noteStudent.get(i)).append("\n");
         }
         return buffer.toString();
     }

@@ -1,29 +1,47 @@
 package ro.catalog;
 
+import ro.catalog.servicii.CitireDinFisier;
 import ro.catalog.servicii.ServiceCatalog;
 import ro.catalog.servicii.ServiceUtilizatori;
 import ro.catalog.utilizatori.Profesor;
 import ro.catalog.utilizatori.Student;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
-    public static void main(String[] args) {
-        Student s1 = ServiceUtilizatori.creazaStudent("Popescu", "Ioan", "182/2020", 251);
-        Student s2 = ServiceUtilizatori.creazaStudent("Ionescu", "George", "51/2020", 251);
-        Student s3 = ServiceUtilizatori.creazaStudent("Ene", "Maria", "185/2020", 251);
-        Student s4 = ServiceUtilizatori.creazaStudent("Popa", "Ioana", "200/2020", 251);
+    public static void main(String[] args) throws IOException {
 
-        Materie m1 = ServiceCatalog.creazaMaterie("IA", 4);
-        Materie m2 = ServiceCatalog.creazaMaterie("AA", 5);
-        Materie m3 = ServiceCatalog.creazaMaterie("PAO", 6);
-        Materie m4 = ServiceCatalog.creazaMaterie("MDS", 4);
+        CitireDinFisier citire = CitireDinFisier.getCitire();
 
-        Profesor p1 = ServiceUtilizatori.creazaProfesor("Dragan","Ioan");
-        Profesor p2 = ServiceUtilizatori.creazaProfesor("Matei","Delia");
-        Profesor p3 = ServiceUtilizatori.creazaProfesor("Paul","Mihai");
-        Profesor p4 = ServiceUtilizatori.creazaProfesor("Iona","Ana");
+        List<Catalog> catalogs = new ArrayList<>();
 
         Catalog c1 = ServiceCatalog.creazaCatalog(251);
+        Catalog c2 = ServiceCatalog.creazaCatalog(252);
+        c1.getMaterii().addAll(CitireDinFisier.citireMaterii());
+        c2.getMaterii().addAll(CitireDinFisier.citireMaterii());
+
+        catalogs.addAll(CitireDinFisier.citire.citireCatalog());
+
+
+        Student s1 = ServiceUtilizatori.creareStudent("Popescu", "Ioan", "182/2020", 251);
+        Student s2 = ServiceUtilizatori.creareStudent("Ionescu", "George", "51/2020", 251);
+        Student s3 = ServiceUtilizatori.creareStudent("Ene", "Maria", "185/2020", 251);
+        Student s4 = ServiceUtilizatori.creareStudent("Popa", "Ioana", "200/2020", 251);
+
+        Materie m1 = ServiceCatalog.creareMaterie("IA", 4);
+        Materie m2 = ServiceCatalog.creareMaterie("AA", 5);
+        Materie m3 = ServiceCatalog.creareMaterie("PAO", 6);
+        Materie m4 = ServiceCatalog.creareMaterie("MDS", 4);
+
+        Profesor p1 = ServiceUtilizatori.creareProfesor("Dragan","Ioan");
+        Profesor p2 = ServiceUtilizatori.creareProfesor("Matei","Delia");
+        Profesor p3 = ServiceUtilizatori.creareProfesor("Paul","Mihai");
+        Profesor p4 = ServiceUtilizatori.creareProfesor("Iona","Ana");
+
+
         ServiceCatalog.adaugaStudentInCatalog(c1, s1);
         ServiceCatalog.adaugaStudentInCatalog(c1, s2);
         ServiceCatalog.adaugaStudentInCatalog(c1, s3);
@@ -39,12 +57,13 @@ public class Main {
         ServiceCatalog.adaugareNotaStudent(c1, s1, 10, m3);
         ServiceCatalog.adaugareNotaStudent(c1, s1, 10, m4);
 
-        //System.out.println(c1.afisareCatalog());
-        // System.out.println(ServiceCatalog.afisareNoteStudent(c1, s1));
         System.out.println(ServiceCatalog.afisareMediiDesc(c1));
 
         for (Student student:ServiceCatalog.getStudentiDupaNumeCrescator(c1)) {
             System.out.println(student.toString());
         }
+
+        System.out.println(c1);
+        System.out.println(c2);
     }
 }

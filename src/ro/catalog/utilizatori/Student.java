@@ -12,6 +12,22 @@ public class Student extends Utilizator {
         this.grupa = grupa;
     }
 
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public String getPrenume() {
+        return prenume;
+    }
+
+    public void setPrenume(String prenume) {
+        this.prenume = prenume;
+    }
+
     public String getNrMatricol() {
         return nrMatricol;
     }

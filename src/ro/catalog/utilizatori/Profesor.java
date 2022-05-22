@@ -18,6 +18,8 @@ public class Profesor extends Utilizator {
         this.materiiPredate = materiiPredate;
     }
 
+
+
     public String getNume() {
         return nume;
     }

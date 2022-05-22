@@ -6,6 +6,7 @@ public class Student extends Utilizator {
     private String nrMatricol;
     private int grupa;
 
+
     public Student(String nume, String prenume, String nrMatricol, int grupa) {
         super(nume, prenume);
         this.nrMatricol = nrMatricol;

@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bab59e96-26e0-4855-94f0-860c28ff83b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../out/production/Proiect-PAO-Catalog/ro/catalog/Catalog.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/Proiect-PAO-Catalog/ro/catalog/Catalog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../out/production/Proiect-PAO-Catalog/ro/catalog/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../out/production/Proiect-PAO-Catalog/ro/catalog/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../out/production/Proiect-PAO-Catalog/ro/catalog/ServiceCatalog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../out/production/Proiect-PAO-Catalog/ro/catalog/ServiceCatalogInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../out/production/Proiect-PAO-Catalog/ro/catalog/utilizatori/ServiceUtilizator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Catalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Catalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServiceCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicii/ServiceCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServiceCatalogInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicii/ServiceCatalogInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilizatori/ServiceUtilizator.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicii/ServiceUtilizatori.java" afterDir="false" />
-    </list>
+    <list default="true" id="bab59e96-26e0-4855-94f0-860c28ff83b0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

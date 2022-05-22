@@ -3,12 +3,21 @@ package ro.catalog;
 import java.util.Objects;
 
 public class Materie {
+    private int id;
     private String denumire;
     private int nrCredite;
 
     public Materie(String denumire, int nrCredite) {
         this.denumire = denumire;
         this.nrCredite = nrCredite;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDenumire() {

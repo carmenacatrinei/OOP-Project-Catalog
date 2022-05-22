@@ -1,5 +1,9 @@
 package ro.catalog;
 
+import dao.repositories.CatalogRepository;
+import dao.repositories.MateriiRepository;
+import dao.repositories.ProfesoriRepository;
+import dao.repositories.StudentiRepository;
 import ro.catalog.servicii.CitireDinFisier;
 import ro.catalog.servicii.ServiceCatalog;
 import ro.catalog.servicii.ServiceUtilizatori;
@@ -65,5 +69,27 @@ public class Main {
 
         System.out.println(c1);
         System.out.println(c2);
+
+        StudentiRepository studentiRepository = StudentiRepository.getStudentiRepository();
+        studentiRepository.createTable();
+
+        ProfesoriRepository profesoriRepository = ProfesoriRepository.getProfesoriRepository();
+        profesoriRepository.createTable();
+
+        MateriiRepository materiiRepository = MateriiRepository.getMateriiRepository();
+        materiiRepository.createTable();
+
+        CatalogRepository catalogRepository = CatalogRepository.getCatalogRepository();
+        catalogRepository.createTable();
+
+//        catalogRepository.insert(251);
+//        catalogRepository.insert(252);
+//        catalogRepository.insert(451);
+//        catalogRepository.select();
+//        catalogRepository.update(3, 261);
+//        catalogRepository.select();
+//        catalogRepository.delete(3);
+//        catalogRepository.select();
+
     }
 }

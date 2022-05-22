@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Catalog {
+    private int id;
     private List<Materie> materii = new ArrayList<>();
     private List<Student> studenti = new ArrayList<>();
     private int grupa;
@@ -24,6 +25,14 @@ public class Catalog {
         if(student.getGrupa() == grupa) {
             studenti.add(student);
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getMateriiSize(){

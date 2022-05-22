@@ -1,12 +1,21 @@
 package ro.catalog.utilizatori;
 
 abstract public class Utilizator {
+    private int id;
     protected String nume;
     protected String prenume;
 
     public Utilizator(String nume, String prenume) {
         this.nume = nume;
         this.prenume = prenume;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNume() {

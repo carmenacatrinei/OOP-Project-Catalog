@@ -2,9 +2,6 @@ package ro.catalog.servicii;
 
 import java.io.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Audit {
     public static Audit auditService;
@@ -17,7 +14,7 @@ public class Audit {
         return auditService;
     }
 
-    public void writeAction(String action) throws IOException {
+    public void writeAction(String action){
         try (FileWriter fileWriter = new FileWriter("data/data.csv", true)) {
             File file = new File("data/data.csv");
 
@@ -33,7 +30,5 @@ public class Audit {
             System.out.println("\n\tException: " + e.getMessage());
         }
     }
-
-
 
 }

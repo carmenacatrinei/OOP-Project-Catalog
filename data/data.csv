@@ -30,3 +30,32 @@ NumeActiune,Timestamp
 Creare profesor,2022-05-04T16:22:57.090019400
 NumeActiune,Timestamp
 Creare profesor,2022-05-04T16:22:57.091059700
+Creare catalog,2022-05-22T14:40:27.655050200
+Creare catalog,2022-05-22T14:40:27.660063800
+Creare student,2022-05-22T14:40:27.668043500
+Creare student,2022-05-22T14:40:27.672031600
+Creare student,2022-05-22T14:40:27.673027200
+Creare student,2022-05-22T14:40:27.674026200
+Creare materie,2022-05-22T14:40:27.674347300
+Creare materie,2022-05-22T14:40:27.675023100
+Creare materie,2022-05-22T14:40:27.675023100
+Creare materie,2022-05-22T14:40:27.676091400
+Creare profesor,2022-05-22T14:40:27.676091400
+Creare profesor,2022-05-22T14:40:27.678014
+Creare profesor,2022-05-22T14:40:27.679065
+Creare profesor,2022-05-22T14:40:27.679065
+Adaugare student in catalog,2022-05-22T14:40:27.680009200
+Adaugare student in catalog,2022-05-22T14:40:27.680009200
+Adaugare student in catalog,2022-05-22T14:40:27.681006700
+Adaugare student in catalog,2022-05-22T14:40:27.682003400
+Adaugare materie in catalog,2022-05-22T14:40:27.683998700
+Adaugare materie in catalog,2022-05-22T14:40:27.685992900
+Adaugare materie in catalog,2022-05-22T14:40:27.685992900
+Adaugare materie in catalog,2022-05-22T14:40:27.686992900
+Initializare catalog,2022-05-22T14:40:27.687988200
+Adaugare nota student,2022-05-22T14:40:27.688986300
+Adaugare nota student,2022-05-22T14:40:27.689030500
+Adaugare nota student,2022-05-22T14:40:27.689984600
+Adaugare nota student,2022-05-22T14:40:27.690978600
+Afisare medii descrescator,2022-05-22T14:40:27.703944600
+Afisare studenti dupa nume alfabetic,2022-05-22T14:40:27.706979800

@@ -1,15 +1,11 @@
 package ro.catalog.servicii;
 
-import jdk.jshell.execution.Util;
 import ro.catalog.Catalog;
 import ro.catalog.Materie;
-import ro.catalog.utilizatori.Profesor;
-import ro.catalog.utilizatori.Student;
 import ro.catalog.utilizatori.Utilizator;
-
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
+
 
 public class ScriereInFisier {
     public static ScriereInFisier scriere;

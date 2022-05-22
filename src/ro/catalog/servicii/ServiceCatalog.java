@@ -6,6 +6,7 @@ import ro.catalog.exceptii.NotaInvalida;
 import ro.catalog.utilizatori.Student;
 import ro.catalog.utilizatori.StudentComparator;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -13,20 +14,25 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toMap;
 
 public class ServiceCatalog implements ServiceCatalogInterface{
+    private static Audit audit = Audit.getAudit();
 
-    public static Catalog creazaCatalog(int grupa){
+    public static Catalog creazaCatalog(int grupa) throws IOException {
+        audit.writeAction("Creare catalog");
         return new Catalog(grupa);
     }
 
-    static public Materie creareMaterie(String denumire, int nrCredite){
+    static public Materie creareMaterie(String denumire, int nrCredite) throws IOException {
+        audit.writeAction("Creare materie");
         return new Materie(denumire, nrCredite);
     }
 
-    public static void adaugaStudentInCatalog(Catalog catalog, Student student){
+    public static void adaugaStudentInCatalog(Catalog catalog, Student student) throws IOException {
+        audit.writeAction("Adaugare student in catalog");
         catalog.adaugareStudent(student);
     }
 
-    public static void adaugaMaterieInCatalog(Catalog catalog, Materie materie){
+    public static void adaugaMaterieInCatalog(Catalog catalog, Materie materie) throws IOException {
+        audit.writeAction("Adaugare materie in catalog");
         catalog.adaugareMaterie(materie);
     }
 
@@ -35,7 +41,7 @@ public class ServiceCatalog implements ServiceCatalogInterface{
      *
      * @param catalog Catalogul ce trebuile initializat
      */
-    public static void initializareCatalog(Catalog catalog){
+    public static void initializareCatalog(Catalog catalog) throws IOException {
         List<List<Integer>> catalogNote = new ArrayList<>();
         for(int i = 0; i < catalog.getStudentiSize(); i++){
             List<Integer> arrayNoteStudent = new ArrayList<>();
@@ -45,9 +51,10 @@ public class ServiceCatalog implements ServiceCatalogInterface{
             catalogNote.add(arrayNoteStudent);
         }
         catalog.setNote(catalogNote);
+        audit.writeAction("Initializare catalog");
     }
 
-    static public void adaugareNotaStudent(Catalog catalog, Student student, int nota, Materie materie){
+    static public void adaugareNotaStudent(Catalog catalog, Student student, int nota, Materie materie) throws IOException {
         try {
             if(nota<0 || nota>10) {
                 throw new NotaInvalida("Nota nu poate fi negativa sau mai mare decat 10!");
@@ -57,17 +64,20 @@ public class ServiceCatalog implements ServiceCatalogInterface{
         catch (NotaInvalida e) {
             System.out.println(e.getMessage());
         }
+        audit.writeAction("Adaugare nota student");
     }
 
-    static public String afisareCatalog(Catalog catalog) {
+    static public String afisareCatalog(Catalog catalog) throws IOException {
+        audit.writeAction("Afisare catalog");
         return catalog.afisareCatalog();
     }
 
-    static public String afisareNoteStudent(Catalog catalog, Student student) {
+    static public String afisareNoteStudent(Catalog catalog, Student student) throws IOException {
+        audit.writeAction("Afisare note student");
         return catalog.afisareNoteStudent(student);
     }
 
-    static public String afisareMediiDesc(Catalog catalog){
+    static public String afisareMediiDesc(Catalog catalog) throws IOException {
         Map<String, Float> medii = new HashMap<>();
         List<List<Integer>> note = catalog.getNote();
         for(int i = 0; i < catalog.getStudentiSize(); i++){
@@ -94,26 +104,28 @@ public class ServiceCatalog implements ServiceCatalogInterface{
         for (Map.Entry<String, Float> entry:mediiSortate.entrySet()) {
             afisare.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
+        audit.writeAction("Afisare medii descrescator");
         return afisare.toString();
     }
 
-    public static List<Student> getStudentiDupaNumeCrescator(Catalog catalog){
+    public static List<Student> getStudentiDupaNumeCrescator(Catalog catalog) throws IOException {
         List<Student> listaReturn = new ArrayList<>();
         listaReturn.addAll(catalog.getStudenti());
         listaReturn.sort(StudentComparator.getComparatorNumeCrescator());
-
+        audit.writeAction("Afisare studenti dupa nume alfabetic");
         return listaReturn;
     }
 
-    public static List<Student> getStudentiDupaNumeDescrescator(Catalog catalog){
+    public static List<Student> getStudentiDupaNumeDescrescator(Catalog catalog) throws IOException {
         List<Student> listaReturn = new ArrayList<>();
         listaReturn.addAll(catalog.getStudenti());
         listaReturn.sort(StudentComparator.getComparatorNumeDescrescator());
-
+        audit.writeAction("Adaugare studenti dupa nume de la Z la A");
         return listaReturn;
     }
 
-    public static void afisareStudentiGrupa(Catalog catalog, int grupa){
+    public static void afisareStudentiGrupa(Catalog catalog, int grupa) throws IOException {
+        audit.writeAction("Afisare studenti dupa grupa");
         System.out.println(catalog.getStudenti()
                 .stream()
                 .filter(student -> student.getGrupa() == grupa).collect(Collectors.toList()));

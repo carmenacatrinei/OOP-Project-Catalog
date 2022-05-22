@@ -63,4 +63,6 @@ public class Profesor extends Utilizator {
                 ", materiiPredate=" + materiiPredate +
                 '}';
     }
+
+
 }

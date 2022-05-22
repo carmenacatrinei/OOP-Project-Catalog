@@ -2,8 +2,6 @@ package ro.catalog.servicii;
 
 import ro.catalog.Catalog;
 import ro.catalog.Materie;
-import ro.catalog.utilizatori.Profesor;
-import ro.catalog.utilizatori.Student;
 import ro.catalog.utilizatori.Utilizator;
 
 import java.io.BufferedReader;

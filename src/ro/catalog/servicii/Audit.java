@@ -15,8 +15,8 @@ public class Audit {
     }
 
     public void writeAction(String action){
-        try (FileWriter fileWriter = new FileWriter("data/data.csv", true)) {
-            File file = new File("data/data.csv");
+        try (FileWriter fileWriter = new FileWriter("C:\\Users\\carme\\Desktop\\Anul 2 de chin\\Sem2\\ProiectPaoCatalogGit\\Proiect-PAO-Catalog\\data\\data.csv", true)) {
+            File file = new File("C:\\Users\\carme\\Desktop\\Anul 2 de chin\\Sem2\\ProiectPaoCatalogGit\\Proiect-PAO-Catalog\\data\\data.csv");
 
             if (file.length() == 0) {
                 fileWriter.append("NumeActiune").append(",").append("Timestamp").append("\n");

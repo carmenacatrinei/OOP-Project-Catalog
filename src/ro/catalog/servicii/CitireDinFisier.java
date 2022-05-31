@@ -1,8 +1,8 @@
 package ro.catalog.servicii;
 
-import ro.catalog.Catalog;
-import ro.catalog.Materie;
-import ro.catalog.utilizatori.Utilizator;
+import ro.catalog.entitati.Catalog;
+import ro.catalog.entitati.Materie;
+import ro.catalog.entitati.Utilizator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -28,7 +28,7 @@ public class CitireDinFisier {
     public static List<Materie> citireMaterii(){
         List<Materie> materii = new ArrayList<>();
         try {
-            BufferedReader buffer = new BufferedReader(new FileReader("data/materii.csv"));
+            BufferedReader buffer = new BufferedReader(new FileReader("C:\\Users\\carme\\Desktop\\Anul 2 de chin\\Sem2\\ProiectPaoCatalogGit\\Proiect-PAO-Catalog\\data\\materii.csv"));
             String line = buffer.readLine();
 
             while (line != null) {
@@ -48,7 +48,7 @@ public class CitireDinFisier {
     public List<Catalog> citireCatalog(){
         List<Catalog> catalogs = new ArrayList<>();
         try {
-            BufferedReader buffer = new BufferedReader(new FileReader("data/catalog.csv"));
+            BufferedReader buffer = new BufferedReader(new FileReader("C:\\Users\\carme\\Desktop\\Anul 2 de chin\\Sem2\\ProiectPaoCatalogGit\\Proiect-PAO-Catalog\\data\\catalog.csv"));
             String line = buffer.readLine();
 
             while (line != null) {

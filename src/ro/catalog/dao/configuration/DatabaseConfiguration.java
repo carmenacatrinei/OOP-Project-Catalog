@@ -1,4 +1,4 @@
-package dao.configuration;
+package ro.catalog.dao.configuration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

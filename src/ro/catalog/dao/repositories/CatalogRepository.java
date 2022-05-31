@@ -1,26 +1,29 @@
-package dao.repositories;
+package ro.catalog.dao.repositories;
 
-import dao.configuration.DatabaseConfiguration;
+import ro.catalog.dao.configuration.DatabaseConfiguration;
+import ro.catalog.entitati.Catalog;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ProfesoriRepository {
+public class CatalogRepository {
 
-    private static ProfesoriRepository profesoriRepository;
+    private static CatalogRepository catalogRepository;
 
-    private ProfesoriRepository() {
+    private CatalogRepository() {
     }
 
-    public static ProfesoriRepository getProfesoriRepository() {
-        if (profesoriRepository == null) {
-            profesoriRepository = new ProfesoriRepository();
+    public static CatalogRepository getCatalogRepository() {
+        if (catalogRepository == null) {
+            catalogRepository = new CatalogRepository();
         }
-        return profesoriRepository;
+        return catalogRepository;
     }
 
     public void createTable() {
-        String createTableSql = "CREATE TABLE IF NOT EXISTS profesori" +
-                "(id int PRIMARY KEY AUTO_INCREMENT, nume varchar(30), prenume varchar(30))";
+        String createTableSql = "CREATE TABLE IF NOT EXISTS catalog" +
+                "(id int PRIMARY KEY AUTO_INCREMENT, grupa int)";
 
         Connection connection = DatabaseConfiguration.getConnection();
 
@@ -35,15 +38,14 @@ public class ProfesoriRepository {
     //CREATE - INSERT, READ - SELECT, UPDATE, DELETE
 
     //INSERT
-    public void insert(String nume, String prenume) {
-        String insertSql = "INSERT INTO profesori(nume, prenume) VALUES(?, ?)";
+    public void insert(int grupa) {
+        String insertSql = "INSERT INTO catalog(grupa) VALUES(?)";
 
         Connection connection = DatabaseConfiguration.getConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
-            preparedStatement.setString(1, nume);
-            preparedStatement.setString(2, prenume);
+            preparedStatement.setInt(1, grupa);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,33 +53,36 @@ public class ProfesoriRepository {
     }
 
     //READ
-    public void select() {
-        String selectSql = "SELECT * FROM profesori";
+    public List<Catalog> select() {
+        String selectSql = "SELECT * FROM catalog";
 
         Connection connection = DatabaseConfiguration.getConnection();
+
+        List<Catalog> listaCatalog = new ArrayList<>();
 
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(selectSql);
-            System.out.println("Profesori: ");
+
             while (resultSet.next()) {
-                System.out.println("\tNume: " + resultSet.getString(2));
-                System.out.println("\tPrenume: " + resultSet.getString(3));
+                listaCatalog.add(new Catalog(resultSet.getInt(2)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return listaCatalog;
     }
 
     // UPDATE
-    public void update(int id, String nume) {
-        String updateSql = "UPDATE profesori SET nume=? WHERE id=?";
+    public void update(int id, int grupa) {
+        String updateSql = "UPDATE catalog SET grupa=? WHERE id=?";
 
         Connection connection = DatabaseConfiguration.getConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(updateSql);
-            preparedStatement.setString(1, nume);
+            preparedStatement.setInt(1, grupa);
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -87,7 +92,7 @@ public class ProfesoriRepository {
 
     // DELETE
     public void delete(int id) {
-        String deleteSql = "DELETE FROM profesori WHERE id=?";
+        String deleteSql = "DELETE FROM catalog WHERE id=?";
 
         Connection connection = DatabaseConfiguration.getConnection();
 

@@ -1,10 +1,10 @@
 package ro.catalog.servicii;
 
-import ro.catalog.Catalog;
-import ro.catalog.Materie;
+import ro.catalog.entitati.Catalog;
+import ro.catalog.entitati.Materie;
 import ro.catalog.exceptii.NotaInvalida;
-import ro.catalog.utilizatori.Student;
-import ro.catalog.utilizatori.StudentComparator;
+import ro.catalog.entitati.Student;
+import ro.catalog.comparator.StudentComparator;
 
 import java.io.IOException;
 import java.util.*;
@@ -42,6 +42,7 @@ public class ServiceCatalog implements ServiceCatalogInterface{
      * @param catalog Catalogul ce trebuile initializat
      */
     public static void initializareCatalog(Catalog catalog) throws IOException {
+
         List<List<Integer>> catalogNote = new ArrayList<>();
         for(int i = 0; i < catalog.getStudentiSize(); i++){
             List<Integer> arrayNoteStudent = new ArrayList<>();
@@ -72,9 +73,9 @@ public class ServiceCatalog implements ServiceCatalogInterface{
         return catalog.afisareCatalog();
     }
 
-    static public String afisareNoteStudent(Catalog catalog, Student student) throws IOException {
+    static public void afisareNoteStudent(Catalog catalog, Student student) throws IOException {
         audit.writeAction("Afisare note student");
-        return catalog.afisareNoteStudent(student);
+        catalog.afisareNoteStudent(student);
     }
 
     static public String afisareMediiDesc(Catalog catalog) throws IOException {

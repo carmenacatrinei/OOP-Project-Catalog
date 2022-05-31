@@ -1,6 +1,4 @@
-package ro.catalog.utilizatori;
-
-import ro.catalog.Materie;
+package ro.catalog.entitati;
 
 import java.util.ArrayList;
 import java.util.List;

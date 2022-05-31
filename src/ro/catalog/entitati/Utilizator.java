@@ -1,4 +1,4 @@
-package ro.catalog.utilizatori;
+package ro.catalog.entitati;
 
 abstract public class Utilizator {
     private int id;

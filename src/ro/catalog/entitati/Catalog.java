@@ -1,6 +1,6 @@
-package ro.catalog;
+package ro.catalog.entitati;
 
-import ro.catalog.utilizatori.Student;
+import ro.catalog.dao.repositories.MateriiRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,8 +70,8 @@ public class Catalog {
         this.note = note;
     }
 
-    public void setNota(Integer nota, Student stundent, Materie materie){
-        note.get(studenti.indexOf(stundent)).set(materii.indexOf(materie), nota);
+    public void setNota(Integer nota, Student student, Materie materie){
+        note.get(studenti.indexOf(student)).set(materii.indexOf(materie), nota);
     }
 
     public String afisareCatalog(){
@@ -92,14 +92,17 @@ public class Catalog {
         return buffer.toString();
     }
 
-    public String afisareNoteStudent(Student student){
-        StringBuilder buffer = new StringBuilder();
-        List<Integer> noteStudent = note.get(studenti.indexOf(student));
-        buffer.append(student.getNume()).append(" ").append(student.getPrenume()).append("\n");
-        for (int i = 0; i < getMateriiSize(); i++) {
-            buffer.append(materii.get(i).getDenumire()).append(": ").append(noteStudent.get(i)).append("\n");
+    public void afisareNoteStudent(Student student){
+        List<Integer> noteStudent = note.get(studenti.indexOf(student) - 1);
+
+        MateriiRepository materiiRepository = MateriiRepository.getMateriiRepository();
+
+        List<Materie> materii = materiiRepository.select();
+
+        for (int i = 0; i < materii.size(); i++) {
+            String concat = materii.get(i).getDenumire().concat(":").concat(Integer.toString(noteStudent.get(i)));
+            System.out.println(concat);
         }
-        return buffer.toString();
     }
 
     @Override

@@ -1,9 +1,9 @@
 package ro.catalog.servicii;
 
-import ro.catalog.Materie;
-import ro.catalog.utilizatori.Profesor;
-import ro.catalog.utilizatori.Student;
-import ro.catalog.utilizatori.Utilizator;
+import ro.catalog.entitati.Materie;
+import ro.catalog.entitati.Profesor;
+import ro.catalog.entitati.Student;
+import ro.catalog.entitati.Utilizator;
 
 import java.io.IOException;
 

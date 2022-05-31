@@ -1,4 +1,4 @@
-package ro.catalog;
+package ro.catalog.entitati;
 
 import java.util.Objects;
 

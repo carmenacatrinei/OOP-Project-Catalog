@@ -1,4 +1,6 @@
-package ro.catalog.utilizatori;
+package ro.catalog.comparator;
+
+import ro.catalog.entitati.Student;
 
 import java.util.Comparator;
 

@@ -1,8 +1,12 @@
-package dao.repositories;
+package ro.catalog.dao.repositories;
 
-import dao.configuration.DatabaseConfiguration;
+import ro.catalog.dao.configuration.DatabaseConfiguration;
+import ro.catalog.entitati.Materie;
+import ro.catalog.entitati.Student;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MateriiRepository {
     private static MateriiRepository materiiRepository;
@@ -50,34 +54,36 @@ public class MateriiRepository {
     }
 
     //READ
-    public void select() {
+    public List<Materie> select() {
         String selectSql = "SELECT * FROM materii";
 
         Connection connection = DatabaseConfiguration.getConnection();
 
+        List<Materie> materii = new ArrayList<Materie>();
+
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(selectSql);
-            System.out.println("Materii: ");
             while (resultSet.next()) {
-                System.out.println("\tDenumire: " + resultSet.getString(2));
-                System.out.println("\tNr. credite: " + resultSet.getInt(3));
+                materii.add(new Materie(resultSet.getString(2), resultSet.getInt(3)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return materii;
     }
 
     // UPDATE
-    public void update(int id, int nrCredite) {
-        String updateSql = "UPDATE studenti SET credite=? WHERE id=?";
+    public void update(Integer credite, String nume) {
+        String updateSql = "UPDATE materii SET nrCredite=? WHERE denumire=?";
 
         Connection connection = DatabaseConfiguration.getConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(updateSql);
-            preparedStatement.setInt(1, nrCredite);
-            preparedStatement.setInt(2, id);
+            preparedStatement.setInt(1, credite);
+            preparedStatement.setString(2, nume);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -93,6 +99,19 @@ public class MateriiRepository {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(deleteSql);
             preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteAll() {
+        String deleteSql = "DELETE FROM materii";
+
+        Connection connection = DatabaseConfiguration.getConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteSql);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

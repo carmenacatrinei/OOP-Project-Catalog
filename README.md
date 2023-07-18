@@ -1,31 +1,31 @@
-# Proiect-PAO-Catalog
+# OOP Project Catalog
 
-Aceasta aplicatie are tema unui catalog.
+This app has a catalog theme.
 
-In cadrul catalogului exista un meniu de unde se pot efectua urmatoarele actiuni:
+Within the catalog there is a menu where the following actions can be performed:
 
-0. Parasire meniu
+0. Exit menu
 
-1. Adauga student
+1. Add student
 
-2. Adauga profesor
+2. Add teacher
 
-3. Afisati toti studentii de la o anumita grupa
+3. Display all students from a certain group
 
-4. Afisati toate materiile in ordinea descrescatoare a numarului de credite
+4. Display all subjects in descending order of the number of credits
 
-5. Modificati numarul matricol al unui student
+5. Modify a student's enrollment number
 
-6. Afisati profesorii alfabetic
+6. Display teachers alphabetically
 
-7. Afisati toate grupele de studenti
+7. Display all student groups
 
-8. Concediere profesor
+8. Teacher dismissal
 
-9. Afisare note student
+9. Display student grades
 
-10. Modificati numarul de credite al unei materii
+10. Change the number of credits of a subject
 
-Scopul proiectului este retinerea intr-o baza de date a catalogului unei facultati (materii, note, studenti), a profesorilor si a materiilor predate de acestia, a studentilor si a notelor acestora in catalog.
+The purpose of the project is to retain in a database the catalog of a faculty (subjects, grades, students), the teachers and the subjects taught by them, the students and their grades in the catalog.
 
-Forma proiectului nu este una finala, ci doar respecta cerintele unui proiect de facultate. Diferite functionalitati si exceptii urmeaza a fi tratate.
+The form of the project is not final, but only complies with the requirements of a college project. Different functionalities and exceptions are to be treated.

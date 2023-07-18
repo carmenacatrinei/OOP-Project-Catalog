@@ -1,6 +1,6 @@
 # OOP Project Catalog
 
-This app has a catalog theme.
+This app has a catalog theme and is built using Java.
 
 Within the catalog there is a menu where the following actions can be performed:
 
